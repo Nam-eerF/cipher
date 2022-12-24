@@ -7,7 +7,6 @@ from pathlib import Path
 def encrypt(file_path, password, delete_file=False):
     # Check if file exists
     if Path(file_path).exists():
-        file_path = Path(file_path).resolve()
         directory = Path(file_path).parent
         filename = Path(file_path).stem
 
@@ -16,8 +15,8 @@ def encrypt(file_path, password, delete_file=False):
             return 'The file is encrypted', False
 
         # Encrypt the file
-        decode_file = f'{Path(directory).joinpath(filename)}.aes'
-        pyAesCrypt.encryptFile(file_path, decode_file, password)
+        encrypt_file = f'{Path(directory).joinpath(filename)}.aes'
+        pyAesCrypt.encryptFile(file_path, encrypt_file, password)
 
         # Delete the file
         if delete_file:

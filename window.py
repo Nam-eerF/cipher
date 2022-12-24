@@ -3,14 +3,6 @@ from tkinter import filedialog
 
 from cipher import encrypt, decrypt
 
-# Initialization of program
-window = tk.Tk()
-
-# Settings of window
-window.title('Cipher')
-window.geometry('550x250')
-window.columnconfigure([0, 1, 2], minsize=50, weight=1)
-
 
 # function for selecting file
 def open_file():
@@ -58,6 +50,14 @@ def show_label_info(text, status):
     label_info['fg'] = 'green' if status else 'red'
 
 
+# Initialization of program
+window = tk.Tk()
+
+# Settings of window
+window.title('Cipher')
+window.geometry('550x250')
+window.columnconfigure([0, 1, 2], minsize=50, weight=1)
+
 # The variable in which the method is written
 method = tk.BooleanVar()
 method.set(True)
@@ -82,7 +82,7 @@ label_method.grid(row=2, column=0, pady=15)
 radio_dec_btn = tk.Radiobutton(text='Зашифровать файл', variable=method, value=True, command=hide_input_ext)
 radio_dec_btn.grid(row=2, column=1, pady=15)
 
-radio_enc_btn = tk.Radiobutton(text='Дешифровать файл', variable=method, value=False, command=show_input_ext)
+radio_enc_btn = tk.Radiobutton(text='Расшифровать файл', variable=method, value=False, command=show_input_ext)
 radio_enc_btn.grid(row=2, column=3, pady=15, padx=10)
 
 label_pass = tk.Label(text='Укажите пароль')
