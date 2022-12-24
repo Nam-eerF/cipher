@@ -40,8 +40,8 @@ def decrypt(file_path, password, extension='.txt', delete_file=False):
         extension = extension if extension[0] == '.' else f'.{extension}'
 
         # Decrypt the file
-        encrypt_file = f'{Path(directory).joinpath(filename)}{extension}'
-        pyAesCrypt.decryptFile(file_path, encrypt_file, password)
+        decrypt_file = f'{Path(directory).joinpath(filename)}{extension}'
+        pyAesCrypt.decryptFile(file_path, decrypt_file, password)
 
         # Delete the file
         if delete_file:
